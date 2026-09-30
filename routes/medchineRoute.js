@@ -29,6 +29,7 @@ import {
   addToWishlist,
   removeFromWishlist
 } from "../controllers/medchineController.js";
+import loginAdmin from "../controllers/adminAuthController.js";
 
 const router = express.Router();
 
@@ -69,5 +70,6 @@ router.put("/orders/:id/cancel",          authUser,  cancelOrder);
 router.get("/wishlist",                  authUser, getWishlist);
 router.post("/wishlist/add",             authUser, addToWishlist);
 router.delete("/wishlist/remove/:medicineId", authUser, removeFromWishlist);
+router.post("/admin/login", loginAdmin);
 
 export default router;
